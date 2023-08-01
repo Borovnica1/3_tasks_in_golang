@@ -1,0 +1,6 @@
+* koji su potencijalni izazovi ovakvog mikroservisa u cilju skaliranja?
+1. Skladistenje velikog broja slika i popunjavanje memorije dovodi do potrebe za horizontalnim skaliranjem i povecanjem memorijskog prostora.
+2. Povecanje broja zahteva za uploadovanje, listanje i preuzimanje slika moze dovesti do preopterecenja web servera. U tom slucaju bi mogli da vertikalno skaliramo server sa povecanjem resursa (RAM, CPU) i/ili horizontalno skaliranje tj dodamo jos servera koji bi pokretali nasu aplikaciju.
+
+* kako bi obradio velike fajlove od po 1-2GB?
+1. Pomocu tehnike strimovanja fajla. U slucaju strimovanja mi bi deo po deo fajla ucitavali u memoriju servera i obradjivali deo po deo, a aplikacija bi uvek bila spremna za odgovor na druge zahteve korisnika u toku strimovanja fajla.
